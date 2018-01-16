@@ -25,7 +25,7 @@ const styles = {
   container: {
     backgroundColor: 'transparent',
     position: 'relative',
-    flex: 1
+    flexGrow: 1
   },
 
   wrapperIOS: {
@@ -34,7 +34,7 @@ const styles = {
 
   wrapperAndroid: {
     backgroundColor: 'transparent',
-    flex: 1
+    flexGrow: 1
   },
 
   slide: {
