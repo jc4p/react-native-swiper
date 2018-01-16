@@ -107,6 +107,10 @@ export default class extends Component {
   static propTypes = {
     horizontal: PropTypes.bool,
     children: PropTypes.node.isRequired,
+    contentContainerStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.number,
+    ]),
     containerStyle: PropTypes.oneOfType([
       PropTypes.object,
       PropTypes.number,
@@ -176,7 +180,8 @@ export default class extends Component {
     autoplayTimeout: 2.5,
     autoplayDirection: true,
     index: 0,
-    onIndexChanged: () => null
+    onIndexChanged: () => null,
+    contentContainerStyle: {}
   }
 
   /**
@@ -663,7 +668,7 @@ export default class extends Component {
         <ScrollView ref={this.refScrollView}
           {...this.props}
           {...this.scrollViewPropOverrides()}
-          contentContainerStyle={[styles.wrapperIOS, this.props.style]}
+          contentContainerStyle={this.props.contentContainerStyle}
           contentOffset={this.state.offset}
           onScrollBeginDrag={this.onScrollBegin}
           onMomentumScrollEnd={this.onScrollEnd}
