@@ -119,6 +119,10 @@ export default class extends Component {
       PropTypes.object,
       PropTypes.number,
     ]),
+    slideStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.number,
+    ]),
     pagingEnabled: PropTypes.bool,
     showsHorizontalScrollIndicator: PropTypes.bool,
     showsVerticalScrollIndicator: PropTypes.bool,
@@ -699,6 +703,7 @@ export default class extends Component {
     const {
       children,
       containerStyle,
+      slideStyle,
       loop,
       loadMinimal,
       loadMinimalSize,
@@ -712,7 +717,7 @@ export default class extends Component {
     const loopVal = loop ? 1 : 0
     let pages = []
 
-    const pageStyle = [{width: width, height: height}, styles.slide]
+    const pageStyle = [{width: width, height: height}, styles.slide, slideStyle]
     const pageStyleLoading = {
       width,
       height,
