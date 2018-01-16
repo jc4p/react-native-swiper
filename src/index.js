@@ -722,7 +722,7 @@ export default class extends Component {
     const loopVal = loop ? 1 : 0
     let pages = []
 
-    const pageStyle = [{width: width, height: height}, styles.slide, slideStyle]
+    const pageStyle = slideStyle ? slideStyle : [{width: width, height: height}, styles.slide]
     const pageStyleLoading = {
       width,
       height,
@@ -761,7 +761,8 @@ export default class extends Component {
     }
 
     return (
-      <View style={[styles.container, containerStyle]} onLayout={this.onLayout}>
+      <View style={containerStyle ? containerStyle : styles.container}
+        onLayout={this.onLayout}>
         {this.renderScrollView(pages)}
         {showsPagination && (renderPagination
           ? renderPagination(index, total, this)
